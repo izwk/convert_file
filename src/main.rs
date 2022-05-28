@@ -27,9 +27,6 @@ fn main() {
 
     match &cli.command {
         Commands::Img { src, dest } => {
-            if src.is_none() || dest.is_none() {
-                panic!("Oops...Something went wrong...");
-            }
             convert_img(src.as_ref().unwrap(), dest.as_ref().unwrap());
         }
     }
