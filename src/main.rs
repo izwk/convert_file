@@ -1,10 +1,5 @@
 use clap::{Parser, Subcommand};
 
-fn convert_img(src: &str, dest: &str) {
-    let img = image::open(src).unwrap();
-    img.save(dest).unwrap();
-}
-
 /// Simple program to convert files
 #[derive(Parser, Debug)]
 //#[clap(author, version, about, long_about = None)]
@@ -27,7 +22,7 @@ fn main() {
 
     match &cli.command {
         Commands::Img { src, dest } => {
-            convert_img(src.as_ref().unwrap(), dest.as_ref().unwrap());
+            convert_file::convert_img(src.as_ref().unwrap(), dest.as_ref().unwrap());
         }
     }
 }
